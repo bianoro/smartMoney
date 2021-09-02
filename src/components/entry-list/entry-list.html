@@ -1,0 +1,24 @@
+<ion-card>
+  <ion-card-header>Últimos Lançamentos</ion-card-header>
+  <ion-list>
+
+    <button ion-item *ngFor="let entry of entries" (click)="editEntry(entry)" [ngClass]="{'show-line': entries.length > 1, 'green': true}">
+      <h2>{{ entry.description }}</h2>
+      <p>
+        <ion-icon name="time"></ion-icon>{{ entry.entry_at | date: 'short' }}
+        <ion-icon name="pin" *ngIf="entry.address"></ion-icon>{{ entry.address }}
+      </p>
+      <ion-note item-end>{{ entry.amount | currency }}</ion-note>
+    </button>
+
+  </ion-list>
+
+  <ion-item *ngIf="showActions">
+    <ion-note>Últimos 7 dias</ion-note>
+    <button ion-button icon-start clear item-end (click)="showReport()">
+      <ion-icon name="analytics"></ion-icon>
+      Ver Mais
+    </button>
+  </ion-item>
+  
+</ion-card>

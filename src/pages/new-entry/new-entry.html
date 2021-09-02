@@ -1,0 +1,49 @@
+<ion-content padding>
+  <div class="new-entry-container">
+    <balance-label [currentBalance]="currentBalance"></balance-label>
+
+    <form [formGroup]="entryForm">
+      <p>
+        <input type="tel"
+          name="amount"
+          formControlName="amount"
+          [(ngModel)]="entry.amount"
+          currencyMask [options]="{ prefix: '$ ', thousands: '.', decimal: ',' }"/>
+      </p>
+      <p class="error"
+        *ngIf="entryForm.controls.amount.hasError('required') && entryForm.controls.amount.touched">
+        <span>O campo de valor é obrigatório!</span>
+      </p>
+
+      <p>
+        <select name="category_id"
+          formControlName="category_id"
+          [(ngModel)]="entry.category_id">
+
+          <option *ngFor="let category of categories"
+            [value]="category.id"
+            required>
+            {{category.name}}
+          </option>
+        </select>
+      </p>
+      <p class="error"
+        *ngIf="entryForm.controls.category_id.hasError('required') && entryForm.controls.category_id.touched">
+        <span>O campo de categoria deve ser selecionado!</span>
+      </p>
+
+      <p text-center>
+        <button ion-fab [color]="this.entry['entry_at'] ? 'blue' : 'dark'" (click)="openDateModal()"><ion-icon name="calendar"></ion-icon></button>
+        <button ion-fab [color]="this.entry['description'] ? 'blue' : 'dark'" (click)="openDescriptionModal()"><ion-icon name="create"></ion-icon></button>
+        <button ion-fab [color]="this.entry['address'] ? 'blue' : 'dark'" (click)="openGeoLocationModal()"><ion-icon name="pin"></ion-icon></button>
+        <button ion-fab [color]="this.entry['image'] ? 'blue' : 'dark'" (click)="openCameraModal()"><ion-icon name="camera"></ion-icon></button>
+      </p>
+    </form>
+  </div>
+</ion-content>
+<ion-footer no-border>
+  <ion-toolbar text-center>
+    <button ion-button color="secondary" [disabled]="!entryForm.valid" (click)="submitForm()" outline round large>Debitar</button>
+    <button ion-button color="light" (click)="dismiss()" clear round large>Cancelar</button>
+  </ion-toolbar>
+</ion-footer>

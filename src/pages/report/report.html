@@ -1,0 +1,19 @@
+<ion-content padding>
+    <div class="report-container">
+        <balance-label [currentBalance]="currentBalance"></balance-label>
+  
+        <ion-toolbar text-center>
+          <button ion-button color="light" (click)="selectDate()" outline round>{{ dateButtonLabel }}</button>
+          <button ion-button color="light" (click)="selectCategory()" outline round>{{ categoryButtonLabel }}</button>
+        </ion-toolbar>
+  
+        <entry-summary [entries]="entriesByCategory"></entry-summary>
+        <entry-list [entries]="lastEntries"></entry-list>
+    </div>
+  </ion-content>
+ 
+  <ion-footer no-border>
+      <ion-toolbar text-center>
+        <button ion-button color="light" (click)="dismiss()" clear round large>Fechar</button>
+      </ion-toolbar>
+    </ion-footer>

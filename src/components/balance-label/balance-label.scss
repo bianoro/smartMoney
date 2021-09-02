@@ -1,0 +1,27 @@
+balance-label {
+  .balance-label-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+
+    .balance-label-text {
+      color: color($colors, white);
+      font-size: 1.5rem;
+      text-align: center;
+      margin: 0;
+      padding: 0 0 1rem;
+    }
+
+    .balance-label-value {
+      display: inline;
+      background: linear-gradient(to bottom, color($colors, violet) -30%, color($colors, blue) 110%);
+      border-radius: 8px;
+      color: color($colors, white);
+      font-size: 3.5rem;
+      font-weight: lighter;
+      text-align: center;
+      padding: 1rem 2.2rem;
+      margin: 0 auto;
+    }
+  }
+}

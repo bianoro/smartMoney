@@ -1,0 +1,54 @@
+page-new-entry {
+  .new-entry-container {
+    padding-top: 6vh !important;
+  }
+
+  form {
+    padding-top: 6vh;
+
+    p {
+      margin-bottom: 3rem;
+    }
+
+    input,
+    select {
+      display: inline-block;
+      outline: none;
+      appearance: none;
+      cursor: pointer;
+      background-color: color($colors, asphalt);
+      border-radius: 5px;
+      border: none;
+      color: color($colors, white);
+      font-size: 3.8rem;
+      width: 100%;
+      padding: 18px 22px;
+    }
+
+    input {
+      text-align: right;
+    }
+
+    select {
+      text-align-last:center;
+    }
+
+    button[ion-fab] {
+      display: inline-block !important;
+      font-size: 2rem !important;
+      margin-right: 2rem !important;
+      box-shadow: none;
+
+      &:last-child {
+        margin-right: 0 !important;
+      }
+
+      ion-icon {
+        font-size: 4rem;
+      }
+    }
+  }
+  .error {
+    color: red;
+  }
+}
